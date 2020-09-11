@@ -40,32 +40,29 @@ module MyEnumerable
     def collect(&block)
         self.map(&block)
     end
-    def reduce
-        def reduce initial = nil, sym = nil, &block
-          
-            if sym.nil? && block.nil?
-              operation = accumulator
-              initial = nil
-            end   
-            block = case sym
-              when Symbol
-                lambda { |mod, value| mod.send(sym, value) }
-              when nil
-                block
-            end   
-            if initial.nil?
-              ignore_first = true
-              initial = self.first
-            end   
-            index = 0  
-            each do |ele|
-              unless ignore_first && index == 0
-                initial = block.call(initial, ele)
-              end
-              index += 1
+    def reduce initial = nil, sym = nil, &block  
+        if sym.nil? && block.nil? 
+            sym = initial
+            initial = nil
+        end   
+        block = case sym 
+        when Symbol 
+            lambda { |mod, value| mod.send(sym, value) } 
+        when nil
+            block 
+        end   
+        if initial.nil?
+            ignore_first = true
+            initial = first
+        end   
+        index = 0  
+        each do |ele| 
+            unless ignore_first && index == 0 
+                initial = block.call(initial, ele) 
             end
-            accumulator
-          end
+            index += 1
+        end
+        initial
     end
     def max
         index=0

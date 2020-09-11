@@ -38,6 +38,6 @@ s = ["s1","s2","s3"]
 p mumbai.getsnack.map{|ele| ele.upcase}
 
 
-p mumbai.max
 
-
+num =[1,2,3,4,5,6]
+p num.min
