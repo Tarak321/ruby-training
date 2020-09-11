@@ -38,7 +38,7 @@ module MyEnumerable
         result
     end
     def collect(&block)
-        self.map(&block)
+        map(&block)
     end
     def reduce initial = nil, sym = nil, &block  
         if sym.nil? && block.nil? 
