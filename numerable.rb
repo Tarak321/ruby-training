@@ -39,5 +39,5 @@ p mumbai.getsnack.map{|ele| ele.upcase}
 
 
 
-num =[1,2,3,4,5,6]
-p num.min
+num =[1,2,74,4,52,6,8778,1,1,555]
+p mumbai.sort(num)

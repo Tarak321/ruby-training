@@ -81,9 +81,20 @@ module MyEnumerable
             initial>ele ? ele : initial
         end 
     end
-    def sort
-
-
+    def sort(array)
+        s = array.size
+        return array if s <=1 
+        swp = true 
+        while swp 
+            swp = false 
+            (s-1).times do |x| 
+                if array[x] > array[x+1] 
+                    array[x], array[x+1] = array[x+1], array[x] 
+                    swp = true 
+                end 
+            end 
+        end 
+        array
     end
     def zip
 
