@@ -1,9 +1,10 @@
 module MyEnumerable
-    def map(&block)
+    def map
         result = []
         each do |ele|
-            result<<ele 
+            result<<yield(ele) 
         end
+        result
     end
     def find(&block)
         found=false

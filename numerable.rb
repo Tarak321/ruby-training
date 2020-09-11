@@ -1,5 +1,5 @@
 
-require_relative('./tsgenumrable')
+require_relative('./tsgenumrablepract')
 
 class Store 
     include MyEnumerable
@@ -17,6 +17,9 @@ class Store
             yield snacks
         end
     end
+    def getsnack
+        @snacks
+    end
     
 
 end
@@ -31,5 +34,10 @@ p mumbai.find{|snack|  snack.downcase=="vadapav"}
 # p mumbai.map{|snack| snack.upcase}
 p mumbai.find_all{|snack| snack.downcase.include?("p")}
 
+s = ["s1","s2","s3"]
+p mumbai.getsnack.map{|ele| ele.upcase}
+
+
+p mumbai.max
 
 
